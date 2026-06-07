@@ -136,3 +136,4 @@ Examples:
 8. Define the agentic engineering operating model for long-horizon execution
 9. Convert the plan into an execution backlog and MVP spec
 10. Add a hybrid skill + agent routing layer for auto-triggered workflows
+11. Add intent-first routing so user queries match skills and agents even when wording is indirect
