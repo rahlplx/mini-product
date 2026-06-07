@@ -135,3 +135,4 @@ Examples:
 7. Define the backend service boundaries and API contracts
 8. Define the agentic engineering operating model for long-horizon execution
 9. Convert the plan into an execution backlog and MVP spec
+10. Add a hybrid skill + agent routing layer for auto-triggered workflows
