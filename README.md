@@ -7,6 +7,7 @@ Goal: build a platform-agnostic visual editor that can ingest a flat image, spli
 - `vibe-stack` as the app/runtime foundation
 - `canva-claude-skills` as the workflow reference for image-to-design, poster editing, translation, feedback, and motion concepts
 - `agency-agents` as the agent operating model for product, engineering, QA, design, and feedback roles
+- Codex coding agent is the primary runtime for skills, routing, and agent execution
 
 ## Repo Structure
 
@@ -137,3 +138,4 @@ Examples:
 9. Convert the plan into an execution backlog and MVP spec
 10. Add a hybrid skill + agent routing layer for auto-triggered workflows
 11. Add intent-first routing so user queries match skills and agents even when wording is indirect
+12. Keep all mini-product skills explicitly compatible with the Codex coding agent
