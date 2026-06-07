@@ -2,6 +2,7 @@
   "name": "mini-product",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "packageManager": "pnpm@9.0.0",
   "workspaces": [
     "apps/*",
@@ -9,7 +10,7 @@
   ],
   "scripts": {
     "build": "echo \"Build later\"",
-    "test": "echo \"Test later\"",
+    "test": "node scripts/run-tests.mjs",
     "lint": "echo \"Lint later\""
   }
 }

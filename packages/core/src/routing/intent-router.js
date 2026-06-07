@@ -1,5 +1,4 @@
-import type { AgentName, IntentResult, PrimaryIntent, UserQueryContext } from './intent-types';
-import { getDefaultAgentForIntent } from './agent-map';
+import { getDefaultAgentForIntent } from './agent-map.js';
 
 const BUILD_HINTS = ['build', 'create', 'scaffold', 'implement', 'wire', 'ship', 'add'];
 const PLAN_HINTS = ['plan', 'define', 'scope', 'architecture', 'design', 'roadmap'];
@@ -7,13 +6,13 @@ const VALIDATE_HINTS = ['test', 'verify', 'validate', 'benchmark', 'check', 'rev
 const IMPROVE_HINTS = ['improve', 'faster', 'optimize', 'tune', 'harden', 'refine', 'fix'];
 const OPERATE_HINTS = ['monitor', 'telemetry', 'learn', 'analytics', 'deploy', 'launch', 'automate'];
 
-function score(text: string, hints: string[]): number {
+function score(text, hints) {
   const normalized = text.toLowerCase();
   return hints.reduce((count, hint) => count + (normalized.includes(hint) ? 1 : 0), 0);
 }
 
-function chooseIntent(text: string): PrimaryIntent {
-  const scores: Record<PrimaryIntent, number> = {
+function chooseIntent(text) {
+  const scores = {
     build: score(text, BUILD_HINTS),
     plan: score(text, PLAN_HINTS),
     validate: score(text, VALIDATE_HINTS),
@@ -21,10 +20,10 @@ function chooseIntent(text: string): PrimaryIntent {
     operate: score(text, OPERATE_HINTS),
   };
 
-  return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0] as PrimaryIntent;
+  return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0] || 'plan';
 }
 
-function agentForSpecialCases(text: string, fallback: AgentName): AgentName {
+function agentForSpecialCases(text, fallback) {
   const normalized = text.toLowerCase();
   if (
     normalized.includes('backend') ||
@@ -42,7 +41,7 @@ function agentForSpecialCases(text: string, fallback: AgentName): AgentName {
   return fallback;
 }
 
-export function routeUserQuery(context: UserQueryContext): IntentResult {
+export function routeUserQuery(context) {
   const intent = chooseIntent(context.text);
   const fallback = getDefaultAgentForIntent(intent);
   const agent = agentForSpecialCases(context.text, fallback);
