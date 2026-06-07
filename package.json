@@ -1,0 +1,15 @@
+{
+  "name": "mini-product",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "echo \"Build later\"",
+    "test": "echo \"Test later\"",
+    "lint": "echo \"Lint later\""
+  }
+}

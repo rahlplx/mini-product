@@ -8,6 +8,24 @@ Goal: build a platform-agnostic visual editor that can ingest a flat image, spli
 - `canva-claude-skills` as the workflow reference for image-to-design, poster editing, translation, feedback, and motion concepts
 - `agency-agents` as the agent operating model for product, engineering, QA, design, and feedback roles
 
+## Repo Structure
+
+```text
+mini-product/
+├── apps/
+│   ├── api/
+│   └── worker/
+├── packages/
+│   ├── ai/
+│   ├── core/
+│   └── storage/
+├── database/
+├── docs/
+├── infra/
+├── scripts/
+└── tests/
+```
+
 ## Product Principles
 
 - NLP-first: the user should be able to describe the goal in plain language

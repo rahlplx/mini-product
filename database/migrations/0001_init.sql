@@ -1,0 +1,1 @@
+-- Initial migration placeholder for the mini product schema.
